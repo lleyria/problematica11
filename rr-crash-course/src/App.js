@@ -1,25 +1,53 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Buildings from './components/Buildings';
+import buildingBD from './data/mock_buildings.json';
+import Header from './components/Header'
 import './App.css';
+import AddBuilding from './components/AddBuilding';
+
 
 class App extends Component {
+  state = {buildingBD}
+
+  updateBuilding = (Id) => {
+    this.setState({buildingBD: [...this.state.buildingBD.filter(building => building.Id !== Id)]})
+  }
+
+  delBuilding = ({Id,BuildingName, CompanyName, Address, ManagerName, Phone, BoilersTypes}) => {
+    this.setState({buildingBD: [...this.state.buildingBD.filter(building => building.Id !== Id)]})
+    const newBuilding ={
+      Id,
+      BuildingName,
+      CompanyName,
+      Address,
+      ManagerName,
+      Phone,
+      BoilersTypes
+    }
+    this.setState({ buildingBD: [...this.state.buildingBD, newBuilding] })
+  }
+
+  AddBuilding = ({Id,BuildingName, CompanyName, Address, ManagerName, Phone, BoilersTypes}) =>{
+    const newBuilding ={
+      Id,
+      BuildingName,
+      CompanyName,
+      Address,
+      ManagerName,
+      Phone,
+      BoilersTypes
+    }
+    this.setState({ buildingBD: [...this.state.buildingBD, newBuilding] })
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header />
+        <Buildings buildingBD={this.state.buildingBD} 
+        delBuilding={this.delBuilding}
+        updateBuilding={this.updateBuilding} />
+        <AddBuilding  AddBuilding={this.AddBuilding}/>
       </div>
     );
   }
