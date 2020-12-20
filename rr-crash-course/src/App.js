@@ -6,25 +6,25 @@ import './App.css';
 import AddBuilding from './components/AddBuilding';
 
 
+
 class App extends Component {
   state = {buildingBD}
 
-  updateBuilding = (Id) => {
-    this.setState({buildingBD: [...this.state.buildingBD.filter(building => building.Id !== Id)]})
-  }
+  updateBuilding = (updated) => {
+    this.setState({
+      buildingBD: [
+        ...this.state.buildingBD.map((building) => {
+          if (building.Id === updated.Id) {
+            building = updated;
+          }
+          return building;
+        }),
+      ],
+    });
+  };
 
-  delBuilding = ({Id,BuildingName, CompanyName, Address, ManagerName, Phone, BoilersTypes}) => {
+  delBuilding = (Id) => {
     this.setState({buildingBD: [...this.state.buildingBD.filter(building => building.Id !== Id)]})
-    const newBuilding ={
-      Id,
-      BuildingName,
-      CompanyName,
-      Address,
-      ManagerName,
-      Phone,
-      BoilersTypes
-    }
-    this.setState({ buildingBD: [...this.state.buildingBD, newBuilding] })
   }
 
   AddBuilding = ({Id,BuildingName, CompanyName, Address, ManagerName, Phone, BoilersTypes}) =>{
