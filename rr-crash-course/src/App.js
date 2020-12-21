@@ -12,16 +12,16 @@ class App extends Component {
     buildingToEdit: {},
   }
 
-  AddBuilding = ({Id ,BuildingName, CompanyName, Address, ManagerName, Phone, BoilersId, BoilersTypes}) =>{
+  AddBuilding = ({id ,buildingName, CompanyName, address, managerName, phone, boilersId, boilersTypes}) =>{
     const newBuilding = {
-      Id,
-      BuildingName,
+      id,
+      buildingName,
       CompanyName,
-      Address,
-      ManagerName,
-      Phone,
-      BoilersId,
-      BoilersTypes
+      address,
+      managerName,
+      phone,
+      boilersId,
+      boilersTypes
     }
     this.setState({ buildingBD: [...this.state.buildingBD, newBuilding] })
   }
@@ -29,15 +29,15 @@ class App extends Component {
   updateBuilding = (updated) => {
     this.setState({
       buildingBD: this.state.buildingBD.map( building => {
-          if (building.Id === updated.Id) {
-           building.Id = updated.Id
-           building.BuildingName = updated.BuildingName
+          if (building.id === updated.id) {
+           building.id = updated.id
+           building.buildingName = updated.buildingName
            building.CompanyName = updated.CompanyName
-           building.Address = updated.Address
-           building.ManagerName = updated.ManagerName
-           building.Phone = updated.Phone
-           building.BoilersId = updated.BoilersId
-           building.BoilersTypes = updated.BoilersTypes
+           building.address = updated.address
+           building.managerName = updated.managerName
+           building.phone = updated.phone
+           building.boilersId = updated.boilersId
+           building.boilersTypes = updated.boilersTypes
           }
           return building;
         }),
@@ -46,8 +46,9 @@ class App extends Component {
     })
   };
 
-  delBuilding = (Id) => {
-    this.setState({buildingBD: [...this.state.buildingBD.filter(building => building.Id !== Id)]})
+  delBuilding = (id) => {
+    console.log(id);
+    this.setState({buildingBD: [...this.state.buildingBD.filter(building => building.id !== id)]})
   }
 
   handleEdit = (building) => {

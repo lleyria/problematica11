@@ -2,32 +2,32 @@ import React, { Component } from 'react'
 
 export class AddBuilding extends Component {
     state ={
-        Id: '',
-        BuildingName: '',
-        CompanyName: '',
-        Address: '',
-        ManagerName: '',
-        Phone: '',
-        BoilersId: '',
-        BoilersTypes: ''
+        id: '',
+        buildingName: '',
+        companyName: '',
+        address: '',
+        managerName: '',
+        phone: '',
+        boilersId: '',
+        boilersTypes: ''
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (!!this.props.isEditing && this.props.isEditing !== prevProps.isEditing) {
+        if (this.props.isEditing && this.props.isEditing !== prevProps.isEditing) {
             this.handleEdit(this.props.buildingToEdit);
         }
     }
 
     handleEdit = (buildingToEdit) => {
         this.setState({
-            Id: buildingToEdit.id,
-            BuildingName: buildingToEdit.BuildingName,
-            CompanyName: buildingToEdit.CompanyName,
-            Address: buildingToEdit.Address,
-            ManagerName: buildingToEdit.ManagerName,
-            Phone: buildingToEdit.Phone,
-            BoilersId: buildingToEdit.BoilersId,
-            BoilersTypes: buildingToEdit.BoilersTypes,
+            id: buildingToEdit.id,
+            buildingName: buildingToEdit.buildingName,
+            companyName: buildingToEdit.CompanyName,
+            address: buildingToEdit.address,
+            managerName: buildingToEdit.managerName,
+            phone: buildingToEdit.phone,
+            boilersId: buildingToEdit.boilersId,
+            boilersTypes: buildingToEdit.boilersTypes,
         });
       };
 
@@ -39,16 +39,15 @@ export class AddBuilding extends Component {
             this.props.AddBuilding(this.state);
         }
         
-
         return this.setState({
-            Id: '',
-            BuildingName: '',
+            id: '',
+            buildingName: '',
             CompanyName: '',
-            Address: '',
-            ManagerName: '',
-            Phone: '',
-            BoilersId: '',
-            BoilersTypes: ''
+            address: '',
+            managerName: '',
+            phone: '',
+            boilersId: '',
+            boilersTypes: ''
         });
     }
     onChange = (e) => this.setState({[e.target.name]:e.target.value});
@@ -60,18 +59,18 @@ export class AddBuilding extends Component {
             <h3>{isEditing ? 'Edit Building' : 'Add new Building'}</h3>
             <input
                 type="text"
-                name="Id"
+                name="id"
                 style={{flex: '10', padding: '5px'}}
-                placeholder="Id"
-                value={this.state.Id}
+                placeholder="id"
+                value={this.state.id}
                 onChange={this.onChange}
             />
             <input
                 type="text"
-                name="BuildingName"
+                name="buildingName"
                 style={{flex: '10', padding: '5px'}}
                 placeholder="Building Name"
-                value={this.state.BuildingName}
+                value={this.state.buildingName}
                 onChange={this.onChange}
             />
             <input
@@ -84,42 +83,42 @@ export class AddBuilding extends Component {
             />
             <input
                 type="text"
-                name="Address"
+                name="address"
                 style={{flex: '10', padding: '5px'}}
-                placeholder="Address"
-                value={this.state.Address}
+                placeholder="address"
+                value={this.state.address}
                 onChange={this.onChange}
             />
             <input
                 type="text"
-                name="ManagerName"
+                name="managerName"
                 style={{flex: '10', padding: '5px'}}
                 placeholder="Manager Name"
-                value={this.state.ManagerName}
+                value={this.state.managerName}
                 onChange={this.onChange}
             />
             <input
                 type="text"
-                name="Phone"
+                name="phone"
                 style={{flex: '10', padding: '5px'}}
-                placeholder="Phone"
-                value={this.state.Phone}
+                placeholder="phone"
+                value={this.state.phone}
                 onChange={this.onChange}
             />
             <input
                 type="text"
-                name="BoilersId"
+                name="boilersId"
                 style={{flex: '10', padding: '5px'}}
-                placeholder="BoilersId"
-                value={this.state.BoilersId}
+                placeholder="boilersId"
+                value={this.state.boilersId}
                 onChange={this.onChange}
             />
             <input
                 type="text"
-                name="BoilersTypes"
+                name="boilersTypes"
                 style={{flex: '10', padding: '5px'}}
                 placeholder="Boilers Types"
-                value={this.state.BoilersTypes}
+                value={this.state.boilersTypes}
                 onChange={this.onChange}
             />
             <input

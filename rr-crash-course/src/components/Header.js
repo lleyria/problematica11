@@ -7,12 +7,13 @@ export class Header extends Component {
                 <h1>CaldAR</h1>
                 <h2>Buildings</h2>
                 <ul>
-                <li className='id'>Id</li>
+                <li className='id1'>id</li>
                 <li>Building Name</li>
                 <li>Company Name</li>
                 <li>Address</li>
                 <li>Manager Name</li>
                 <li>Phone Number</li>
+                <li className='id'>Boilers id</li>
                 <li className='id'>Boilers Types</li>
                 <li className='id'>Actions</li>
             </ul>

@@ -23,6 +23,7 @@ button{
   padding: 8px;
   margin: 5px;
   width: 2%;
+  height: 10%;
 }
 .X:hover{
   background-color: green;
@@ -32,6 +33,7 @@ button{
   padding: 8px;
   margin: 5px;
   width: 2%;
+  height: 10%;
 }
 .M:hover{
   background-color: green;
@@ -43,11 +45,14 @@ ul{
 }
 li{
   list-style: none;
-  width: 21%;
+  width: 19%;
   padding: 10px;
 }
 .id{
-  width: 6%;
+  width: 7%;
+}
+.id1{
+  width: 3%;
 }
 h1{
   font-size: 30px;
