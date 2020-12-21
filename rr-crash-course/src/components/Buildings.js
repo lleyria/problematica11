@@ -6,7 +6,7 @@ class Buildings extends Component {
     return this.props.buildingBD.map(building =>(
        <BuildingsItems key={building.id} building={building}
        delBuilding={this.props.delBuilding}
-       updateBuilding={this.props.updateBuilding}/>
+       handleEdit={this.props.handleEdit}/>
     )) ;
   }
 }
